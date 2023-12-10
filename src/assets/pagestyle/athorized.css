@@ -8,7 +8,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  height: 50%;
+  /* height: 50%; */
   width: 50%;
   transform: translate(-50%, -50%);
   /* background-color: #F0E9E9; */
@@ -35,9 +35,22 @@
 }
 
 .signin-button {
-  margin-top: 30px;
+  margin-block-start: 30px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+.to-signup {
+  margin-block-start: 10px;
+  margin-block-end: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.to-signup span {
+  color: #0066FF;
 }
