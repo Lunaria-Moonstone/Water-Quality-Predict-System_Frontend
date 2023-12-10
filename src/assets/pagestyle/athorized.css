@@ -1,0 +1,16 @@
+.back {
+  background-image: linear-gradient(-30deg, #e66465, #9198e5);
+  height: 100vh;
+  width: 100vw;
+}
+
+.sign-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 50%;
+  width: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #F0E9E9;
+  border-radius: 15px;
+}
