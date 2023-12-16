@@ -1,0 +1,87 @@
+:root {
+  --standard-margin: 8px;
+  --side-bar-width: 256px;
+  --side-bar-height: 100%;
+  --main-view-background-color: rgb(240, 242, 245);
+}
+
+/* dashboard side bar style */
+.side-bar {
+  position: fixed;
+  height: var(--side-bar-height);
+  width: var(--side-bar-width);
+}
+
+/* dashboard main view style */
+.main-view {
+  padding-block-start: var(--standard-margin);
+  margin-inline-start: var(--side-bar-width);
+  background-color: var(--main-view-background-color);
+  height: 100vh;
+}
+
+/* overlook page body */
+.overlook-body {
+  padding: var(--standard-margin) var(--standard-margin);
+}
+
+.overlook-body h1 {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.overlook-body hr {
+  margin-block: 20px 10px;
+  width: 60%;
+}
+
+.data-overlook .row {
+  height: 320px;
+  margin-block-end: var(--standard-margin);
+}
+
+.data-overlook .highlight-font {
+  color: red;
+  font-size: larger;
+}
+
+/* manager page body */
+.manager-body {
+  padding: var(--standard-margin) var(--standard-margin);
+}
+
+.manager-body .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.manager-body h1 {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.manager-body hr {
+  margin-block: 20px 10px;
+  width: 60%;
+}
+
+.manager-body h3 {
+  font-family: sans-serif;
+  font-size: 20px;
+  padding-inline-end: 40%;
+}
+
+.table-card .buttons-and-search {
+  display: flex;
+}
+
+.table-card .buttons-and-search .buttons >* {
+  margin-inline-end: 4px;
+}
+
+.table-body {
+  margin-block-start: var(--standard-margin);
+}

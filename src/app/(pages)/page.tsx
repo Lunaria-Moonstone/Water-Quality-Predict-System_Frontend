@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <main>
-      hello next
+      Dream will come true
     </main>
   )
 }

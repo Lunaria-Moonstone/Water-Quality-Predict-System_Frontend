@@ -12,6 +12,7 @@ function Up() {
   const router = useRouter()
   let [username, chUsername] = useState('')
   let [password, chPassword] = useState('')
+  let [repeat_password, chRepeatPassword] = useState('')
   let [api, contextHolder] = notification.useNotification();
 
   const toVerify = async () => {
@@ -22,18 +23,24 @@ function Up() {
       })
       return
     }
-    if (password.length === 0) {
+    if (password.length < 3 || password.length > 16) {
       api.error({
-        message: 'password empty error',
-        description: 'The password should not be empty'
+        message: 'password length error',
+        description: 'The length of a username should not be lower than 3 or higher than 16'
+      })
+      return
+    }
+    if (password !== repeat_password) {
+      api.error({
+        message: 'repeat password error',
+        description: 'repeat password should be equal to password'
       })
       return
     }
     // const data = await fetch('')
     // template start 
-    if (username === 'luna' && password === 'moonstone') {
-      router.push('/')
-      return
+    if (true) {
+      router.push('/sign/in')
     }
     api.error({
       message: 'signin error',
@@ -70,7 +77,7 @@ function Up() {
           <div className="sign-box-line relative h-11 w-full min-w-[200px]">
             <input
               className="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-              placeholder=" " type="password" value={password} onChange={(event) => chPassword(event.target.value)} />
+              placeholder=" " type="password" value={repeat_password} onChange={(event) => chRepeatPassword(event.target.value)} />
             <label
               className="after:content[''] pointer-events-none absolute left-0  -top-1.5 flex h-full w-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
               Repeat Password
