@@ -27,7 +27,8 @@
   padding-block-start: var(--navbar-height);
   margin-inline-start: var(--side-bar-width);
   background-color: var(--main-view-background-color);
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
 }
 
 /* overlook page body */

@@ -25,6 +25,34 @@ function UserManager() {
       title: 'activate',
       dataIndex: 'activate',
       render: (activate: boolean) => <span>{activate ? 'available' : 'unavailable'}</span>
+    },
+    {
+      title: 'actions',
+      key: 'acitons',
+      width: 220,
+      fixed: 'right',
+      render: () => (
+        <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+          <button
+            className="px-3 py-1 font-sans text-xs font-bold text-center text-red-500 uppercase align-middle transition-all rounded-lg select-none hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            type="button"
+          >
+            Delete
+          </button>
+          <button
+            className="px-3 py-1 font-sans text-xs font-bold text-center text-yellow-500 uppercase align-middle transition-all rounded-lg select-none hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            type="button"
+          >
+            Edit
+          </button>
+          <button
+            className="px-3 py-1 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            type="button"
+          >
+            Unactive
+          </button>
+        </div>
+      )
     }
   ]
 
@@ -72,7 +100,7 @@ function UserManager() {
                 </button>
               </div>
               <div>
-                <Search placeholder="input search text"  />
+                <Search placeholder="Input To Search" />
               </div>
             </div>
             <div className="table-body">
