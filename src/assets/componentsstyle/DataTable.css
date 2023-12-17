@@ -1,0 +1,12 @@
+.buttons-and-search {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons-and-search .buttons >* {
+  margin-inline-end: 4px;
+}
+
+.table-body {
+  margin-block-start: var(--standard-margin);
+}

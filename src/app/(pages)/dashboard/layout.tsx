@@ -53,6 +53,7 @@ const sideBarItems: MenuProps['items'] = [
     // sidebarItemsBuilder('样本管理', 'g2', null, [sidebarItemsBuilder('样本管理', '3'),], 'group'),
     sidebarItemsBuilder('User', 'user-manager'),
     sidebarItemsBuilder('Sample', 'sample-manager'),
+    sidebarItemsBuilder('Model', 'model-manager'),
   ]),
 ];
 let breadcrumbItems: Array<{ title: string | ReactNode }> = [
@@ -79,6 +80,10 @@ function Layout({ children }: { children: React.ReactNode }) {
     router.replace(`/dashboard/${key}`)
   }
 
+  const signOut = () => {
+    router.replace(`/sign/in`)
+  }
+
   return (
     <>
       <div className='navbar'>
@@ -98,7 +103,7 @@ function Layout({ children }: { children: React.ReactNode }) {
                 </button>
                 <button
                   className="hidden select-none rounded-lg bg-gradient-to-tr bg-white py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-black shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
-                  type="button">
+                  type="button" onClick={signOut}>
                   <span>Sign out</span>
                 </button>
               </div>

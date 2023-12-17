@@ -10,7 +10,7 @@ interface TableDataType {
   activate: boolean
 }
 
-function UserManager() {
+function ModelManager() {
   const columns: ColumnsType<TableDataType> = [
     {
       title: 'key',
@@ -71,7 +71,7 @@ function UserManager() {
     <>
       <div className="manager-body">
         <div className="title">
-          <h1>User Manager</h1>
+          <h1>Model Manager</h1>
           <h3>16-2023 Dec.</h3>
         </div>
         <hr />
@@ -83,4 +83,4 @@ function UserManager() {
   )
 }
 
-export default UserManager
+export default ModelManager
