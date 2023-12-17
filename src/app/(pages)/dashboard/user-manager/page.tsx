@@ -72,7 +72,7 @@ function UserManager() {
                 </button>
               </div>
               <div>
-                <Search placeholder="input search text" enterButton="Search" />
+                <Search placeholder="input search text"  />
               </div>
             </div>
             <div className="table-body">

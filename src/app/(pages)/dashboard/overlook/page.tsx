@@ -17,7 +17,7 @@ function Overlook() {
               </Card>
             </Col>
             <Col span={10} >
-              <Row gutter={8} style={{height: 'auto'}}>
+              <Row gutter={8} style={{height: 'calc(50% - var(--standard-margin) / 2)'}}>
                 <Col span={12}>
                   <Card title="Registered User" style={cardStyle} bordered={false}>
                     <p>there're <span className="highlight-font">3</span> registered in system</p>
@@ -29,7 +29,7 @@ function Overlook() {
                   </Card>
                 </Col>
               </Row>
-              <Row gutter={8} style={{ marginBlockStart: 'var(--standard-margin)', height: '50%' }}>
+              <Row gutter={8} style={{ marginBlockStart: 'var(--standard-margin)', height: 'calc(50% - var(--standard-margin) / 2)' }}>
                 <Col span={12}>
                   <Card title="Model Tree Depth" style={cardStyle} bordered={false}>
                     <p>the depth of model tree is <span className="highlight-font">12</span></p>

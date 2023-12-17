@@ -2,7 +2,17 @@
   --standard-margin: 8px;
   --side-bar-width: 256px;
   --side-bar-height: 100%;
+  --navbar-height: 72px;
+  --navbar-width: calc(100vw - var(--side-bar-width));
   --main-view-background-color: rgb(240, 242, 245);
+}
+
+/* navbar style */
+.navbar {
+  width: var(--navbar-width);
+  height: var(--navbar-height);
+  margin-inline-start: var(--side-bar-width);
+  position: fixed;
 }
 
 /* dashboard side bar style */
@@ -14,7 +24,7 @@
 
 /* dashboard main view style */
 .main-view {
-  padding-block-start: var(--standard-margin);
+  padding-block-start: var(--navbar-height);
   margin-inline-start: var(--side-bar-width);
   background-color: var(--main-view-background-color);
   height: 100vh;
@@ -76,6 +86,7 @@
 
 .table-card .buttons-and-search {
   display: flex;
+  justify-content: space-between;
 }
 
 .table-card .buttons-and-search .buttons >* {
