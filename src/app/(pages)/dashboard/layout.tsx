@@ -3,7 +3,7 @@
 import '@/assets/pagestyle/dashboard.css'
 
 import React, { ReactNode } from 'react';
-import { DatabaseOutlined } from '@ant-design/icons';
+import { DatabaseOutlined, BranchesOutlined, LineChartOutlined } from '@ant-design/icons';
 import type { BreadcrumbItemProps, BreadcrumbProps, MenuProps, } from 'antd';
 import { Menu } from 'antd';
 import { Breadcrumb } from 'antd';
@@ -47,7 +47,7 @@ function breadcrumbItemsBuilder(path: string): Array<{ title: string | ReactNode
 }
 
 const sideBarItems: MenuProps['items'] = [
-  sidebarItemsBuilder('Overlook', 'overlook'),
+  sidebarItemsBuilder('Overlook', 'overlook', <LineChartOutlined />),
   sidebarItemsBuilder('Data Manager', 'sub1', <DatabaseOutlined />, [
     // sidebarItemsBuilder('用户管理', 'g1', null, [sidebarItemsBuilder('用户管理', '1'),], 'group'),
     // sidebarItemsBuilder('样本管理', 'g2', null, [sidebarItemsBuilder('样本管理', '3'),], 'group'),
@@ -55,6 +55,9 @@ const sideBarItems: MenuProps['items'] = [
     sidebarItemsBuilder('Sample', 'sample-manager'),
     sidebarItemsBuilder('Model', 'model-manager'),
   ]),
+  sidebarItemsBuilder('Training', 'sub2', <BranchesOutlined />, [
+    sidebarItemsBuilder('Training', 'training'),
+  ])
 ];
 let breadcrumbItems: Array<{ title: string | ReactNode }> = [
   // { title: 'Home' },
@@ -90,7 +93,7 @@ function Layout({ children }: { children: React.ReactNode }) {
         <nav
           className="sticky top-0 z-10 block w-full max-w-full px-4 py-2 text-white bg-black border rounded-none shadow-md h-max border-white/80 bg-opacity-80 backdrop-blur-2xl backdrop-saturate-200 lg:px-8 lg:py-4">
           <div className="flex items-center justify-between text-blue-gray-900">
-            <a href="#"
+            <a href="/dashboard/"
               className="mr-4 block cursor-pointer py-1.5 font-sans text-base font-medium leading-relaxed text-inherit antialiased">
               Dashboard
             </a>
