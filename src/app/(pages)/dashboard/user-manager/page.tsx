@@ -1,16 +1,25 @@
 "use client"
+import { ColumnsType } from "antd/es/table"
+import { notification } from "antd"
+import { useEffect, useState } from "react"
 
 import DataTable from "@/app/components/DataTable"
-import { ColumnsType } from "antd/es/table"
+
+import user_manage from "@/api/manager/user_manage"
 
 
 interface TableDataType {
   key: string
   name: string
   activate: boolean
+  created: string,
+  updated: string,
 }
 
-function UserManager() {
+async function UserManager() {
+
+  let [api, contextHolder] = notification.useNotification()
+
   const columns: ColumnsType<TableDataType> = [
     {
       title: 'key',
@@ -24,6 +33,14 @@ function UserManager() {
       title: 'activate',
       dataIndex: 'activate',
       render: (activate: boolean) => <span>{activate ? 'available' : 'unavailable'}</span>
+    },
+    {
+      title: 'created',
+      dataIndex: 'created'
+    },
+    {
+      title: 'updated',
+      dataIndex: 'updated'
     },
     {
       title: 'actions',
@@ -54,21 +71,12 @@ function UserManager() {
       )
     }
   ]
-
-  const data: TableDataType[] = [
-    {
-      key: '1',
-      name: 'sill',
-      activate: true
-    }, {
-      key: '2',
-      name: 'luna',
-      activate: false,
-    }
-  ]
-
+  const [data, setData]: [ColumnsType<TableDataType>, any] = useState([])
+  // let data: ColumnsType<TableDataType> = [];
+  
   return (
     <>
+      { contextHolder }
       <div className="manager-body">
         <div className="title">
           <h1>User Manager</h1>

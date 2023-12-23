@@ -7,13 +7,18 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+import authorized from "@/api/sign/authorized";
+import md5 from "md5";
+
 function Up() {
 
   const router = useRouter()
   let [username, chUsername] = useState('')
   let [password, chPassword] = useState('')
   let [repeat_password, chRepeatPassword] = useState('')
-  let [api, contextHolder] = notification.useNotification();
+  let [api, contextHolder] = notification.useNotification()
+
+  const CryptSalt = process.env.CRYPT_SALT
 
   const toVerify = async () => {
     if (username.length < 4 || username.length > 20) {
@@ -37,10 +42,14 @@ function Up() {
       })
       return
     }
-    // const data = await fetch('')
-    // template start 
-    if (true) {
-      router.push('/sign/in')
+    let result = await authorized.register(username, md5(password + CryptSalt))
+    if (result.ok) {
+      api.success({
+        message: 'sign up success',
+        description: 'now into dashboard'
+      })
+      setTimeout(() => router.push('/dashboard'), 3000)
+      return
     }
     api.error({
       message: 'signin error',

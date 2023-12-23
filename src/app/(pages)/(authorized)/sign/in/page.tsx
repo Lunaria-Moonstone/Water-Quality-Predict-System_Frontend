@@ -2,17 +2,23 @@
 
 import "@/assets/pagestyle/athorized.css"
 
-import { notification } from "antd";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { notification } from "antd"
+import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { useState } from "react"
+import md5 from "md5"
+
+import authorized from '@/api/sign/authorized'
+
 
 function In() {
 
   const router = useRouter()
   let [username, chUsername] = useState('')
   let [password, chPassword] = useState('')
-  let [api, contextHolder] = notification.useNotification();
+  let [api, contextHolder] = notification.useNotification()
+
+  const salt = process.env.CRYPT_SALT
 
   const toVerify = async () => {
     if (username.length < 4 || username.length > 20) {
@@ -29,10 +35,20 @@ function In() {
       })
       return
     }
-    // const data = await fetch('')
-    // template start 
-    if (username === 'luna' && password === 'moonstone') {
-      router.push('/')
+    // if (username === 'luna' && password === 'moonstone') {
+    //   router.push('/')
+    //   return
+    // }
+    // let signRes = await authorized.register(username, password)
+
+    console.log(salt)
+    let result = await authorized.signIn(username, md5(password + salt))
+    if (result.ok) {
+      api.success({
+        message: 'sign in success',
+        description: 'now into dashboard'
+      })
+      setTimeout(() => router.push('/dashboard'), 3000)
       return
     }
     api.error({
